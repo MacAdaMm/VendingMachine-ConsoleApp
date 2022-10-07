@@ -17,16 +17,13 @@ namespace Capstone
         // controls the lifetime of our application.
         private static bool IsRunning = true;
 
-        // Controls what menu will be written to the console each loop.
-        private static Action CurrentMenu;
+        // Controls what menu will be written to the console each loop. defaults to MainMenu.
+        private static Action CurrentMenu = MainMenu;
 
         static void Main(string[] args)
         {
             // Parse out all products in vendingMachine.csv and create an instance of each product stored by the Slot Location (Ex. "A1") in the productLookup Dictionary.
             PopulateProductLookup();
-
-            // set our default menu to Main.
-            CurrentMenu = MainMenu;
 
             // run the program until the user chooses to exit.
             while (IsRunning)
@@ -201,7 +198,7 @@ namespace Capstone
             try
             {
                 string dateFormated = DateTime.Now.ToString().Replace("/", "_").Replace(" ", "_").Replace(':', '_');
-                using (StreamWriter sw = new StreamWriter(salesReportPath + @"\" + $"{dateFormated}_SalesReport.txt"))// BUG: path not correct.
+                using (StreamWriter sw = new StreamWriter(Path.Combine(salesReportPath, $"{dateFormated}_SalesReport.txt")))
                 {
                     decimal totalSalesValue = 0;
                     foreach(SlotItem item in productLookup.Values)

@@ -48,11 +48,5 @@ namespace CapstoneTests
 
             Assert.AreEqual(0, transactionHandler.Balance);
         }
-
-        [TestMethod]
-        public void LogTransactionTest()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

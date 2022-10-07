@@ -29,8 +29,8 @@ namespace Capstone
 
         public void FeedMoney(decimal value)
         {
-            LogTransaction($"FEED MONEY {Balance:C2} {Balance + value:C2}");
             Balance += value;
+            LogTransaction($"FEED MONEY {value:C2} {Balance:C2}");
         }
 
         public string DispenseProduct(SlotItem product)

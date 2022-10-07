@@ -6,6 +6,7 @@ namespace Capstone
     public class SlotItem
     {
         public const int MaxStock = 5;
+
         public string Location { get; }
         public string ProductName { get; }
         public decimal Price { get; }
